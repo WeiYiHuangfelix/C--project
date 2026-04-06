@@ -1,7 +1,7 @@
-# Visual Studio
-.vs/
+# Visual Studio / .NET
 [Bb]in/
 [Oo]bj/
+.vs/
 *.user
 *.suo
 *.userosscache
