@@ -1,0 +1,42 @@
+﻿@using ShoppingProject.ViewModels
+@model OrderDetailsViewModel
+
+@{
+    ViewData["Title"] = "訂單明細";
+}
+
+<div class="container mt-4">
+    <div class="card mb-4">
+        <div class="card-header bg-danger text-white">
+            <h4>訂單主檔資訊 (單號: @Model.OrderId)</h4>
+        </div>
+        <div class="card-body">
+            <p><strong>客戶姓名：</strong> @Model.CustomerName</p>
+            <p><strong>訂購日期：</strong> @Model.OrderDate.ToString("yyyy/MM/dd")</p>
+            <p><strong>總金額：</strong> <span class="text-danger fw-bold">@Model.TotalAmount.ToString("C0")</span></p>
+        </div>
+    </div>
+
+    <h4>訂單明細</h4>
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>產品名稱</th>
+                <th>單價</th>
+                <th>數量</th>
+                <th>小計</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>@item.ProductName</td>
+                    <td>@item.UnitPrice</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.SubTotal</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
